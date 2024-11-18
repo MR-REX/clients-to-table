@@ -1,0 +1,13 @@
+# Ignore Visual Studio Code settings
+.vscode/
+
+# Ignore local .env files
+.env
+.env.*
+!.env.example
+
+# Ignore NodeJS dependencies
+node_modules/
+
+# Ignore build outputs
+dist/
