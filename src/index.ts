@@ -11,7 +11,7 @@ async function main() {
     return;
   }
 
-  console.log('API client successfully created.');
+  console.log('API client successfully initialized.');
 }
 
 main();
