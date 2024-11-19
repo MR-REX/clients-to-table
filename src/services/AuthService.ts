@@ -1,11 +1,12 @@
 import { isAxiosError } from 'axios';
+import { HTTP_STATUS } from '../helpers/HttpStatus';
 import ApiClient from '../api/ApiClient';
 import AuthSession from '../api/AuthSession';
-import { HTTP_STATUS } from '../helpers/HttpStatus';
 
-export type AuthServiceResponse = {
-  token: string;
-};
+import {
+  AuthServiceResponse,
+  AuthServiceResponseSchema,
+} from '../schemas/AuthServiceResponseSchema';
 
 export class AuthorizationError extends Error {
   public readonly userName: string;
@@ -46,7 +47,8 @@ export default class AuthService {
         username: userName,
       });
 
-      return new AuthSession(response.data.token);
+      const data = AuthServiceResponseSchema.parse(response.data);
+      return new AuthSession(data.token);
     } catch (error: unknown) {
       if (isAxiosError(error)) {
         if (error.response?.status === HTTP_STATUS.UNAUTHORIZED) {
@@ -64,7 +66,8 @@ export default class AuthService {
         username: userName,
       });
 
-      return new AuthSession(response.data.token);
+      const data = AuthServiceResponseSchema.parse(response.data);
+      return new AuthSession(data.token);
     } catch (error: unknown) {
       if (isAxiosError(error)) {
         if (error.response?.status === HTTP_STATUS.UNAUTHORIZED) {
