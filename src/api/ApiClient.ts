@@ -1,9 +1,11 @@
 import AuthService, { UserNotFoundError } from '../services/AuthService';
 import AuthSession from './AuthSession';
 import HttpClient from '../utils/HttpClient';
+import ClientService from '../services/ClientService';
 
 export default class ApiClient extends HttpClient {
   protected readonly authService: AuthService;
+  protected readonly clientService: ClientService;
 
   protected authSession: AuthSession | null;
 
@@ -11,6 +13,7 @@ export default class ApiClient extends HttpClient {
     super(baseURL);
 
     this.authService = new AuthService(this);
+    this.clientService = new ClientService(this);
 
     this.authSession = null;
 
@@ -51,5 +54,9 @@ export default class ApiClient extends HttpClient {
     }
 
     return this.isAuthorized;
+  }
+
+  fetchClientsWithStatuses() {
+    return this.clientService.fetchClientsWithStatuses();
   }
 }
