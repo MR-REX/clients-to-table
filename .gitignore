@@ -11,3 +11,6 @@ node_modules/
 
 # Ignore build outputs
 dist/
+
+# Ignore Google Cloud credentials
+credentials.json
