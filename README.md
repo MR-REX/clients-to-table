@@ -4,7 +4,15 @@ An extensible and efficient solution for fetching client data and statuses from 
 web server API and outputting them to Google Sheets.
 
 **Link to the generated Google Sheets spreadsheet:**
+
 [Generated Google Sheets Spreadsheet](https://docs.google.com/spreadsheets/d/1MoLDG4CoajnYEx_M4vD-gwwPW3VeSmZ3Jb8jhOmow5Y/edit?usp=sharing)
+
+> **Disclaimer:**  
+> All data provided in this project, including client information in the table, is
+**not real** and is for **demonstration purposes only**. The data has been generated
+or anonymized for testing and development and should not be considered valid or used
+for any production purposes. Any similarities to real persons or entities are purely
+**coincidental**.
 
 ## About
 
