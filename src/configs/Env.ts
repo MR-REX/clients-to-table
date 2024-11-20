@@ -1,16 +1,10 @@
 import dotenv from 'dotenv';
 import path from 'path';
+import { getEnvironmentVariable } from '../helpers/EnvironmentVariables';
 
 dotenv.config({
   path: path.resolve(__dirname, '../../.env'),
 });
-
-class MissingEnvironmentVariableError extends Error {
-  constructor(variable: string) {
-    super(`Missing environment variable: "${variable}"`);
-    this.name = 'MissingEnvironmentVariableError';
-  }
-}
 
 interface EnvironmentVariables {
   API_URL: string;
@@ -18,16 +12,6 @@ interface EnvironmentVariables {
   GOOGLE_CREDENTIALS_PATH: string;
   GOOGLE_SPREADSHEET_ID: string;
   GOOGLE_SHEET_ID: string;
-}
-
-function getEnvironmentVariable(key: keyof EnvironmentVariables): string {
-  const value = process.env[key];
-
-  if (!value) {
-    throw new MissingEnvironmentVariableError(key);
-  }
-
-  return value;
 }
 
 export const ENV: EnvironmentVariables = {
