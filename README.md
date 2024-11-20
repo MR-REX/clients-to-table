@@ -3,6 +3,9 @@
 An extensible and efficient solution for fetching client data and statuses from a
 web server API and outputting them to Google Sheets.
 
+**Link to the generated Google Sheets spreadsheet:**
+[Generated Google Sheets Spreadsheet](https://docs.google.com/spreadsheets/d/1MoLDG4CoajnYEx_M4vD-gwwPW3VeSmZ3Jb8jhOmow5Y/edit?usp=sharing)
+
 ## About
 
 This project is a **test assignment** for a Backend (NodeJS) Developer position.
